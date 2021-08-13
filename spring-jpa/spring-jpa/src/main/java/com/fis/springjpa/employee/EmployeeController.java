@@ -26,13 +26,13 @@ public class EmployeeController {
 		return "Saved";
 	}
 
-	@GetMapping
+	@GetMapping(path="/all")
 	public @ResponseBody Iterable<Employee> getAllUsers() {
 		
 		return employeeRepository.findAll();
 	}
 
-	@PutMapping
+	@PutMapping(path="/update")
 	public String updateEmployee(@RequestBody Employee employee) {
 
 		Optional<Employee> emp = employeeRepository.findById(employee.getId());
